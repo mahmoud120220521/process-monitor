@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Process Monitor</title>
+    <style>
+        body {
+            background-color: #1b5e20;
+            font-family: Arial;
+            color: white;
+            text-align: center;
+        }
+        button {
+            padding: 10px 20px;
+            margin: 5px;
+            background-color: #81c784;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        #output {
+            margin-top: 20px;
+            background: #2e7d32;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Process Monitor</h1>
+
+    <button onclick="addProcess()">Add Process</button>
+    <button onclick="runProcess()">Run</button>
+    <button onclick="loadAll()">Show All</button>
+
+    <div id="output"></div>
+
+    <script>
+        function addProcess() {
+            fetch('/add-test')
+                .then(res => res.json())
+                .then(data => loadAll());
+        }
+
+        function runProcess() {
+            fetch('/run')
+                .then(res => res.json())
+                .then(data => loadAll());
+        }
+
+        function loadAll() {
+            fetch('/all')
+                .then(res => res.json())
+                .then(data => {
+                    document.getElementById("output").innerHTML =
+                        JSON.stringify(data, null, 2);
+                });
+        }
+    </script>
+
+</body>
+</html>
