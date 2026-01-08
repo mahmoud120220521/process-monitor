@@ -44,4 +44,18 @@ The database is not included inside Docker.
 Docker is used only to run the application.
 The project was developed as a student assignment for OS Lab."# process-monitor" 
 "# process-monitor" 
-"# process-monitor" 
+"# process-monitor"
+## Production Deployment (Assignment 3)
+
+This project was deployed to a production environment using Back4App Containers.
+
+### Production URL
+https://osprocessmonitor-qahrrb0z.b4a.run/
+
+### Deployment Steps
+1. The project repository was pushed to GitHub.
+2. Back4App was connected to the GitHub repository.
+3. The Docker image was built automatically using the Dockerfile.
+4. The container was deployed and exposed on port 3000.
+5. The application was verified through the browser using the production URL.
+
